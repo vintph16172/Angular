@@ -30,6 +30,10 @@ export class AppComponent {
       status: true
     }
   ]
+  onHandleClick() {
+    console.log('clicked!')
+    this.productStatus = !this.productStatus
+  }
 }
 
 /* 
