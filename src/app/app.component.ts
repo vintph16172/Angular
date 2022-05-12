@@ -31,8 +31,16 @@ export class AppComponent {
     }
   ]
   onHandleClick() {
-    console.log('clicked!')
     this.productStatus = !this.productStatus
+  }
+  onHandleDelete(id: number) {
+    console.log(id);
+    this.productList = this.productList.filter(product => product.id !== id);
+  }
+
+  onHandleKeyPress(event: any) {
+    console.log(event.target.value);
+    this.title = event.target.value;
   }
 }
 

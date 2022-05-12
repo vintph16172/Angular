@@ -6,6 +6,14 @@
 <p>Info: {{ productInfo.name }} - {{ productInfo.price }}</p>
 <p>List: ...</p>
 <button (click)="onHandleClick()">Click</button>
+<form action="">
+  <input
+    type="text"
+    (keypress)="onHandleKeyPress($event)"
+    value="{{ title }}"
+  />
+  {{ title }}
+</form>
 <div *ngIf="productStatus">
   <table class="table table-bordererd">
     <thead>
@@ -24,7 +32,9 @@
         <td>{{ product.price }}</td>
         <td>{{ product.status ? "Còn hàng" : "hết hàng" }}</td>
         <td>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger" (click)="onHandleDelete(product.id)">
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>
