@@ -1,5 +1,7 @@
 <app-header></app-header>
 <hr />
+<app-hello [data]="myName"></app-hello>
+<hr />
 <p>String: {{ productName }}</p>
 <p>Price: {{ productPrice }}</p>
 <p>Status: {{ productStatus }}</p>
@@ -50,3 +52,6 @@
 
 <hr />
 <router-outlet></router-outlet>
+
+<!-- const myName = "dat";
+<hello data={myName} /> -->
