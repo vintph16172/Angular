@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProduct } from './models/Product';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,14 @@ export class AppComponent {
   productName: string = "Product A";
   productPrice: number = 10;
   productStatus: boolean = false;
-  productInfo: { id: number, price: number, name: string } = {
+  productInfo: IProduct = {
     id: 1,
     name: "product A",
-    price: 200
+    price: 200,
+    status: true
   };
 
-  productList: { id: number, price: number, name: string, status: boolean }[] = [
+  productList: IProduct[] = [
     {
       id: 1,
       name: "product A",
