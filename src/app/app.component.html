@@ -14,6 +14,13 @@
   />
   {{ title }}
 </form>
+
+<hr />
+<h2>NgModel</h2>
+
+<input type="text" [(ngModel)]="title" value="{{ title }}" />
+{{ title }}
+
 <div *ngIf="productStatus">
   <table class="table table-bordererd">
     <thead>

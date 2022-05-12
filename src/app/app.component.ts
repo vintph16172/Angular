@@ -42,6 +42,9 @@ export class AppComponent {
     console.log(event.target.value);
     this.title = event.target.value;
   }
+  onSubmit() {
+    console.log('1')
+  }
 }
 
 /* 
