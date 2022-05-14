@@ -7,19 +7,6 @@ import { IProduct } from './models/Product';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myName = "Dat";
-
-  title = 'sum22';
-  productName: string = "Product A";
-  productPrice: number = 10;
-  productStatus: boolean = false;
-  productInfo: IProduct = {
-    id: 1,
-    name: "product A",
-    price: 200,
-    status: true
-  };
-
   productList: IProduct[] = [
     {
       id: 1,
@@ -34,21 +21,25 @@ export class AppComponent {
       status: true
     }
   ]
-  onHandleClick() {
-    this.productStatus = !this.productStatus
-  }
-  onHandleDelete(id: number) {
-    console.log(id);
-    this.productList = this.productList.filter(product => product.id !== id);
-  }
+  // onHandleClick() {
+  //   this.productStatus = !this.productStatus
+  // }
+  // onHandleDelete(id: number) {
+  //   console.log(id);
+  //   this.productList = this.productList.filter(product => product.id !== id);
+  // }
 
-  onHandleKeyPress(event: any) {
-    console.log(event.target.value);
-    this.title = event.target.value;
-  }
-  onSubmit() {
-    console.log('1')
-  }
+  // onHandleKeyPress(event: any) {
+  //   console.log(event.target.value);
+  //   this.title = event.target.value;
+  // }
+  // onSubmit() {
+  //   console.log('1')
+  // }
+  // onHandleGetInfo(product: IProduct) {
+  //   this.productDetail = product;
+  //   console.log('product', product)
+  // }
 }
 
 /* 
