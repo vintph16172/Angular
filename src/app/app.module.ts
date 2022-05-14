@@ -8,12 +8,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ProductAddComponent } from './components/product-add/product-add.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProductComponent,
     ProductsComponent,
+    ProductAddComponent,
   ],
   imports: [
     BrowserModule,
