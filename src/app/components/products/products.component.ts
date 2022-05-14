@@ -7,17 +7,17 @@ import { IProduct } from '../../models/Product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  @Input() products!: IProduct[]
-  productDetail!: IProduct;
-  constructor() { }
+  @Input('data') productList!: IProduct[];
+
+  productDeail!: IProduct; // undefined
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-  onHandleDelete(id: number) {
-    this.products = this.products.filter(product => product.id !== id);
+
+  showDetail(id: number) {
+    this.productDeail = this.productList.find(item => item.id === id)!;
   }
-  onHandleGetInfo(product: IProduct) {
-    this.productDetail = product;
-    console.log('product', product)
-  }
+
 }
