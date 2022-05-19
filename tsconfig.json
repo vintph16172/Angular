@@ -3,9 +3,9 @@
     "compileOnSave": false,
     "compilerOptions": {
         "baseUrl": "./",
-        "paths": {
-            "@/*": ["*"]
-        },
+        // "paths": {
+        //     "@/*": ["*"]
+        // },
         "outDir": "./dist/out-tsc",
         "forceConsistentCasingInFileNames": true,
         "strict": true,

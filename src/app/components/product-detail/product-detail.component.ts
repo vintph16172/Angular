@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IProduct } from '../../models/Product';
-
+import { IProduct } from 'src/app/models/Product';
+import mockData from '../../../data';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-
-  product!: IProduct;
-
+  productDetail!: IProduct
   constructor(private router: ActivatedRoute) {
-    const id = this.router.snapshot.paramMap.get('id');
-    // this.product = Array.find(item => item.id === id);
+    const id = this.router.snapshot.paramMap.get('id')!;
+    this.productDetail = mockData.find(item => item.id == +id)!;
   }
 
   ngOnInit(): void {
   }
-
 
 }
