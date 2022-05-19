@@ -21,3 +21,5 @@ export class ProductsComponent implements OnInit {
   }
 
 }
+// /product -> list
+// /product/:id -> detail
