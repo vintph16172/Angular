@@ -17,8 +17,8 @@ export class ProductService {
   removeProduct() {
     // mockData.filter()
   }
-  addProduct() {
-
+  addProduct(product: any) {
+    mockData.push(product);
   }
   updateProduct() {
 
