@@ -6,11 +6,8 @@
             <td>{{ product.name }}</td>
             <td>{{ product.price }}</td>
             <td>
-                <button class="btn btn-info" (click)="showDetail(product.id)">Info</button>
+                <button class="btn btn-info">Info</button>
             </td>
         </tr>
     </tbody>
 </table>
-<div *ngIf="productDeail">
-    {{ productDeail.name }}
-</div>

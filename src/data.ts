@@ -10,6 +10,12 @@ const mockData = [
         name: "product B",
         price: 300,
         status: true
+    },
+    {
+        id: 3,
+        name: "product C",
+        price: 400,
+        status: true
     }
 ]
 export default mockData;
