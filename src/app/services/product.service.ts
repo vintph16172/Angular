@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import mockData from 'src/data';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  API_URL: string = 'http://localhost:3000/products';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getProduct(id: number) {
-    return mockData.find(item => item.id == +id)!;
+    return this.http.get(`${this.API_URL}/${id}`)
   }
   getProducts() {
-    return mockData;
+    return this.http.get(this.API_URL)
   }
   removeProduct() {
     // mockData.filter()
@@ -24,3 +26,8 @@ export class ProductService {
 
   }
 }
+/**
+ * 1. Import module "HttpClientModule" vào file app.module.ts
+ * 2. Import service "HttpClient" vào product.service.ts
+ * 3. Inject service http vào product service
+ */
