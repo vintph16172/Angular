@@ -9,14 +9,16 @@ import mockData from '../../../data';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  productDetail!: any
+  productDetail!: IProduct
   constructor(
     private router: ActivatedRoute,
     private productService: ProductService
   ) {
     const id = this.router.snapshot.paramMap.get('id')!;
     // this.productDetail = mockData.find(item => item.id == +id)!;
-    this.productService.getProduct(+id).subscribe(data => this.productDetail = data)
+    this.productService.getProduct(+id).subscribe(data => {
+      this.productDetail = data
+    })
   }
 
   ngOnInit(): void {

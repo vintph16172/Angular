@@ -7,6 +7,8 @@
             <td>{{ product.price }}</td>
             <td>
                 <button class="btn btn-info">Info</button>
+                <button routerLink="/product/{{ product.id }}">Detail</button>
+                <button class="btn btn-primary" (click)="onRemoveItem(product.id)">Remove</button>
             </td>
         </tr>
     </tbody>
