@@ -27,6 +27,12 @@
       "name": "Product D",
       "price": 12334444,
       "id": 5
+    },
+    {
+      "name": "Product F update",
+      "price": 123456,
+      "status": true,
+      "id": 6
     }
   ]
 }
