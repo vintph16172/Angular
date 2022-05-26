@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -11,11 +12,27 @@ export class ProductAddComponent implements OnInit {
     name: "",
     price: 0
   }
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    if (id) {
+      this.productService.getProduct(id).subscribe(data => {
+        this.product = data
+      })
+    }
   }
   onSubmit() {
-    this.productService.addProduct(this.product);
+    this.productService.addProduct(this.product).subscribe(data => {
+      console.log('Thêm thành công');
+      setTimeout(() => {
+        // redirect về product list
+        this.router.navigateByUrl('/product');
+      }, 2000)
+    })
   }
 }

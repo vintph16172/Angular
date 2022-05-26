@@ -9,10 +9,11 @@ import { ProductService } from '../../services/product.service'
 export class ProductsComponent implements OnInit {
   productList!: IProduct[];
   constructor(private productService: ProductService) {
-    this.showProducts();
+
   }
 
   ngOnInit(): void {
+    this.showProducts();
   }
 
   showProducts() {
@@ -21,11 +22,15 @@ export class ProductsComponent implements OnInit {
     })
   }
   onRemoveItem(id: number) {
-    // call api xoa
-    this.productService.removeProduct(id).subscribe(() => {
-      // reRender
-      this.productList = this.productList.filter(item => item.id !== id);
-    });
+    const confirm = window.confirm('Bạn có chắc chắn muốn xóa không?');
+    if (confirm) {
+      // call api xoa
+      this.productService.removeProduct(id).subscribe(() => {
+        // reRender
+        this.productList = this.productList.filter(item => item.id !== id);
+      });
+    }
+
   }
 
 }
