@@ -13,6 +13,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
+import { LayoutWebsiteComponent } from './layouts/layout-website/layout-website.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,8 @@ import { HomeComponent } from './pages/home/home.component';
     ProductAddComponent,
     ProductDetailComponent,
     HomeComponent,
+    LayoutAdminComponent,
+    LayoutWebsiteComponent,
   ],
   imports: [
     BrowserModule,
