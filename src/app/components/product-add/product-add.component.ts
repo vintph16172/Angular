@@ -1,7 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { IProduct } from 'src/app/models/Product';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder } from '@angular/forms'
 import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
+import { ProductType } from 'src/app/models/ProductType';
 
 @Component({
   selector: 'app-product-add',
@@ -9,40 +10,40 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit {
-  product: IProduct = {
-    name: "",
-    price: 0,
-    status: true
-  }
+  @Output() onAdd = new EventEmitter()
+  id: number | undefined
+  breadcrumb: string = "Thêm Sản Phẩm"
+  addProduct: ProductType = { name: "", price: 0, status: true, description: "" }
+
+  // AddProductForm = this.formBuilder.group({
+  //   id: 100,
+  //   name: "",
+  //   price: "",
+  //   status: true,
+  //   description: ""
+  // })
+
+  // onHandlerSubmit(){
+  //   console.log('abc', this.AddProductForm.value);
+  //   this.AddProductForm.reset();
+  // }
+
   constructor(
     private productService: ProductService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    if (id) {
-      this.productService.getProduct(id).subscribe(data => {
-        this.product = data
-      })
-    }
   }
+
   onSubmit() {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    if (id) {
-      this.productService.updateProduct(this.product).subscribe(data => {
-        setTimeout(() => {
-          // redirect về product list
-          this.router.navigateByUrl('/product');
-        }, 2000)
-      })
-    }
-    this.productService.addProduct(this.product).subscribe(data => {
-      setTimeout(() => {
-        // redirect về product list
-        this.router.navigateByUrl('/product');
-      }, 2000)
-    });
+
+    console.log(this.addProduct);
+    // this.onAdd.emit(this.addProduct)
+    this.productService.addProduct(this.addProduct).subscribe((data) => {
+      console.log(data)
+      this.router.navigate([`/products`])
+    })
   }
+
 }

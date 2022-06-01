@@ -1,35 +1,45 @@
 import { Injectable } from '@angular/core';
-import mockData from 'src/data';
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
-import { IProduct } from '../models/Product';
+import { HttpClient } from "@angular/common/http"
+import { ProductType } from '../models/ProductType';
+import { Observable } from 'rxjs'
+
+const url = `http://localhost:3001/products`
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
-  API_URL: string = 'http://localhost:3000/products';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ) { }
 
-  getProduct(id: number): Observable<IProduct> {
-    return this.http.get<IProduct>(`${this.API_URL}/${id}`)
+  searchProduct(searchInput: string): Observable<ProductType[]> {
+    return this.http.get<ProductType[]>(`${url}?name_like=${searchInput}`)
   }
-  getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.API_URL}`)
+
+  getProduct(): Observable<ProductType[]> {
+    return this.http.get<ProductType[]>(url)
   }
-  removeProduct(id: number): Observable<IProduct> {
-    return this.http.delete<IProduct>(`${this.API_URL}/${id}`)
+  
+  getDetailProduct(id: number | undefined): Observable<ProductType> {
+    return this.http.get<ProductType>(`${url}/${id}`)
   }
-  addProduct(product: any): Observable<IProduct> {
-    return this.http.post<IProduct>(`${this.API_URL}`, product)
+
+  
+  addProduct(data: ProductType ): Observable<ProductType>{
+    return this.http.post<ProductType>(url,data)
   }
-  updateProduct(product: IProduct) {
-    return this.http.put<IProduct>(`${this.API_URL}/${product.id}`, product);
+
+  
+  updateProduct(data: ProductType): Observable<ProductType>{
+    return this.http.put<ProductType>(`${url}/${data.id}`,data)
   }
+
+  
+  deleteProduct(id: number | undefined): Observable<ProductType>{
+    return this.http.delete<ProductType>(`${url}/${id}`)
+  }
+
 }
-/**
- * 1. Import module "HttpClientModule" vào file app.module.ts
- * 2. Import service "HttpClient" vào product.service.ts
- * 3. Inject service http vào product service
- */
+
+

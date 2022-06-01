@@ -1,2 +1,4 @@
 <p>product-detail works!</p>
-{{ productDetail.name }}
+<div *ngIf="product" class="">
+    {{ product.id }} - {{ product.name }} - {{ product.price }} - {{ product.status ? "Còn Hàng" : "Hết Hàng" }} - {{ product.description }}  
+</div>

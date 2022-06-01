@@ -1,1 +1,121 @@
-<p>product works!</p>
+<h1>{{ breadcrumb }}</h1>
+
+<button type="button" class="btn ">
+    <a routerLink="/admin/products/add">
+        Thêm Sản Phẩm
+    </a>
+</button>
+<button (click)="onHandlerClick()" type="button" class="btn btn-primary">Show</button>
+
+<!-- <form action="">
+    <input type="text" (keypress)="onHandlerKeyPress($event)" value="{{ title }}">
+    {{ title }}
+
+
+
+</form>
+
+<hr /> -->
+
+<!-- <h2>ng Model</h2>
+
+<input type="text" [(ngModel)]="title" value="{{ title }}">
+{{ title }}
+
+<hr />
+
+<h2>TEST INPUT</h2>
+
+<app-test-input [data]="testInput"  ></app-test-input> -->
+
+<hr />
+
+<!-- <h2>ADD FORM</h2> -->
+
+
+<!-- <app-product-add (onAdd)="onHandlerAdd($event)" ></app-product-add>> -->
+
+<!-- 
+<div *ngIf="show" class="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">ID</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Mô Tả</th>
+                <th colspan="2" scope="col">Hành Động</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i = index ">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ product.id }}</td>
+                <td>
+                    <a routerLink="/products/{{product.id}}">
+                        {{ product.name }}
+                    </a>
+
+                </td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.status ? "Còn Hàng" : "Hết Hàng" }}</td>
+                <td>{{ product.description }}</td>
+                <td>
+                    <a routerLink="/products/form/{{product.id}}">
+                        <button type="button" class="btn btn-success">Sửa</button>
+                    </a>
+
+                </td>
+                <td><button (click)="onDelete(product.id)" type="button" class="btn btn-danger">Xóa</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div> -->
+
+<div class="send-request">
+    <!-- <button nz-button nzType="primary" [disabled]="setOfCheckedId.size === 0" [nzLoading]="loading"
+        (click)="sendRequest()">
+        Send Request
+    </button> -->
+    <span>Selected {{ setOfCheckedId.size }} items</span>
+</div>
+<nz-table #rowSelectionTable nzShowPagination nzShowSizeChanger [nzData]="listOfData"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+    <thead>
+        <tr>
+            <th [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
+            <th>STT</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Description</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let data of rowSelectionTable.data; let i = index ">
+            <td [nzChecked]="setOfCheckedId.has(data.id)" [nzDisabled]="data.disabled"
+                (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+            <td>{{ i+1 }}</td>
+            <td>{{ data.id }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.price }}</td>
+            <td>{{ data.status == 1 ? "Còn Hàng": "Hết Hàng" }}</td>
+            <td>{{ data.description }}</td>
+            <td>
+                <a routerLink="/admin/products/edit/{{data.id}}">
+                    <button type="button" class="btn btn-success">Sửa</button>
+                </a>
+
+            </td>
+            <td><button (click)="onDelete(data.id)" type="button" class="btn btn-danger">Xóa</button></td>
+        </tr>
+    </tbody>
+</nz-table>
+
+<span>abc</span>

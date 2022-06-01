@@ -1,40 +1,72 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
+
 import { AboutComponent } from './pages/about/about.component';
 import { ProductComponent } from './components/product/product.component';
-import { ProductsComponent } from './components/products/products.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
-import { LayoutWebsiteComponent } from './layouts/layout-website/layout-website.component';
+import { ClientComponent } from './layouts/client/client.component';
+import { AdminComponent } from './layouts/admin/admin.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IconsProviderModule } from './icons-provider.module';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './components/signin/signin.component';
+
+
+registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    AboutComponent,
     ProductComponent,
-    ProductsComponent,
     ProductAddComponent,
+    ProductEditComponent,
+    ProductFormComponent,
     ProductDetailComponent,
     HomeComponent,
-    LayoutAdminComponent,
-    LayoutWebsiteComponent,
+    ClientComponent,
+    AdminComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    IconsProviderModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+    NzTableModule,
+    NzGridModule
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

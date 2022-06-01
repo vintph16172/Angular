@@ -1,4 +1,0 @@
-// create
-// update
-// lisst
-// detail

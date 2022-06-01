@@ -1,0 +1,15 @@
+
+
+<h1>{{ breadcrumb }}</h1>
+
+
+<form  (ngSubmit)="onSubmit()"   >
+    <input type="text" value="" [(ngModel)]="editProduct.name" placeholder="Name" name="name">
+    <input type="number" value="" [(ngModel)]="editProduct.price" placeholder="Price" name="price"> 
+    <input type="text" value="" [(ngModel)]="editProduct.description" placeholder="Description" name="description">
+    
+    
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+
+  

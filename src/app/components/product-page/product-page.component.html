@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">ID</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Mô Tả</th>
+            <th colspan="2" scope="col">Hành Động</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products; let i = index ">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ product.id }}</td>
+            <td>
+                <a routerLink="/products/{{product.id}}">
+                    {{ product.name }}
+                </a>
+               
+            </td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.status ? "Còn Hàng" : "Hết Hàng" }}</td>
+            <td>{{ product.description }}</td>
+            
+        </tr>
+
+    </tbody>
+</table>

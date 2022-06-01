@@ -1,27 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IProduct } from 'src/app/models/Product';
+import { ProductType } from 'src/app/models/ProductType';
 import { ProductService } from 'src/app/services/product.service';
-import mockData from '../../../data';
+
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  productDetail!: IProduct
+
+  product!: any;
+
   constructor(
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
     private productService: ProductService
-  ) {
-    const id = this.router.snapshot.paramMap.get('id')!;
-    // this.productDetail = mockData.find(item => item.id == +id)!;
-    this.productService.getProduct(+id).subscribe(data => {
-      this.productDetail = data
-    })
-  }
+  ) { }
 
   ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get("id"))
+    // const id = Number(routeParams.get("id"))
+
+    this.productService.getDetailProduct(id).subscribe((data)=>{
+      this.product = data
+    })
+
+    // this.product =  this.products.find(item => item.id === id )!
+
+
   }
 
 }
