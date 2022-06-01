@@ -21,7 +21,8 @@ export class SignupComponent implements OnInit {
       password: [null, [Validators.required]],
       remember: [true]
     });
-  }
+  }  
+  
 
   submitForm(): void {
     if (this.validateForm.valid) {
