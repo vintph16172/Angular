@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ClientComponent implements OnInit {
 
-  searchInput: string =""
+  searchInput: string = ""
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,11 +22,16 @@ export class ClientComponent implements OnInit {
 
   }
 
-  onSearch(){
-    console.log(this.searchInput);
-    this.router.navigate([`/product?name=${this.searchInput}`])
-    
-
+  menuToggle(){
+    const menu: any = document.querySelector('#menu');
+    menu.classList.toggle('hidden');
   }
+
+onSearch(){
+  console.log(this.searchInput);
+  this.router.navigate([`/product?name=${this.searchInput}`])
+
+
+}
 
 }

@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http"
 import { Observable } from 'rxjs'
 import { UserType } from '../models/UserType';
 
-const url = `http://localhost:3001/users`
+const url = `http://localhost:3001`
 interface User{
   username: string,
   password: string

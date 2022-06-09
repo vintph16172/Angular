@@ -31,7 +31,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
-
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 registerLocaleData(en);
 @NgModule({
@@ -64,7 +64,8 @@ registerLocaleData(en);
     NzInputModule,
     NzButtonModule,
     NzTableModule,
-    NzGridModule
+    NzGridModule,
+    NzIconModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

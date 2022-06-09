@@ -31,24 +31,99 @@
   ],
   "users": [
     {
-      "id": 1,
-      "username": "admin123",
-      "email": "admin123@gmail.com",
-      "password": "123456",
-      "role": 1
-    },
-    {
-      "id": 2,
-      "username": "nguoidung123",
-      "email": "nguoidung123@gmail.com",
-      "password": "123456",
-      "role": 0
-    },
-    {
       "email": "admin12345@gmail.com",
       "password": "$2a$10$qCtfurr85ncyne8RQYHvk.InOybH0uofRBOrNwvYC311uwNTD3l76",
       "remember": true,
+      "role": 2,
+      "id": 1
+    },
+    {
+      "email": "abc123@gmail.com",
+      "password": "$2a$10$64bPsa6P.3B7O12xhHnjBuUFZZ9/miPC52Mg1MI4nhoh9X5JAr6Si",
+      "remember": true,
+      "role": 2,
+      "id": 2
+    },
+    {
+      "email": "admin666@gmail.com",
+      "password": "$2a$10$9zCju5zcIIEnrlF4pCyuR.FX3oRY75xR.bqCr8ZepWBQYcbInygwe",
+      "remember": true,
+      "role": 2,
       "id": 3
+    },
+    {
+      "email": "nguoidung1@gmail.com",
+      "password": "$2a$10$z6ZAv1u2gpJWAtcJaaEhZ.Iml.zv/4TQj.E1UDIRlsStCE2sUzNdW",
+      "username": "nguoidung1",
+      "role": 1,
+      "id": 4
+    }
+  ],
+  "user":{
+    "name":"Nguyễn Trường Vĩ",
+    "position": "FrontEnd-Developer",
+    "about": "abc",
+    "cv": "abc"
+  },
+  "posts":[
+    {
+      "id": 1,
+      "title":"Post 1",
+      "image": "abc.img",
+      "createAt":"12/02/2022",
+      "categoryPostId": 1,
+      "short-desc": "abc 123",
+      "desc": "jfnejkwebfjewbf"
+    },
+    {
+      "id": 2,
+      "title":"Post 2",
+      "image": "abc.img",
+      "createAt":"12/02/2022",
+      "categoryPostId": 1,
+      "short-desc": "abc 123",
+      "desc": "jfnejkwebfjewbf"
+    }
+  ],
+  "categoriesPosts":[
+    {
+      "id": 1,
+      "name": "Công Nghệ"
+    },
+    {
+      "id": 2,
+      "name": "Tin Tức"
+    }
+  ],
+  "projects":[
+    {
+      "id": 1,
+      "name": "Website Bán đồ ăn nhanh Fastfood",
+      "image": "abc.img",
+      "createAt": "12/02/2022",
+      "categoryProjectId": 1,
+      "short-desc" : "abc 123",
+      "desc":"jfnejkwebfjewbf"
+    },
+    {
+      "id": 2,
+      "name": "Website Bán đồ ăn nhanh Fastfood",
+      "image": "abc.img",
+      "createAt": "12/02/2022",
+      "categoryProjectId": 2,
+      "short-desc" : "abc 123",
+      "desc":"jfnejkwebfjewbf"
+    }
+  ],
+  "categoriesProjects":[
+    {
+      "id": 1,
+      "name": "Công Nghệ"
+    },
+    {
+      "id": 2,
+      "name": "Tin Tức"
     }
   ]
+  
 }
