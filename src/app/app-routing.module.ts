@@ -13,7 +13,10 @@ import { AdminComponent } from './layouts/admin/admin.component';
 import { ClientComponent } from './layouts/client/client.component';
 
 import { AboutComponent } from './pages/about/about.component';
+import { BlogComponent } from './pages/blog/blog.component';
 import { HomeComponent } from './pages/home/home.component';
+import { WorkComponent } from './pages/work/work.component';
+
 import { AdminGuard } from './services/guards/admin.guard';
 
 const routes: Routes = [
@@ -35,7 +38,8 @@ const routes: Routes = [
     children: [
       { path: "", component: HomeComponent },
       { path: "about", component: AboutComponent },
-      
+      { path: "blog", component: BlogComponent },
+      { path: "work", component: WorkComponent },
     ]
   },
   { path: "signup", component: SignupComponent },

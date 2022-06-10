@@ -68,7 +68,7 @@
   "posts":[
     {
       "id": 1,
-      "title":"Post 1",
+      "title":"UI Interactions of the week 1",
       "image": "abc.img",
       "createAt":"12/02/2022",
       "categoryPostId": 1,

@@ -16,6 +16,8 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ClientComponent } from './layouts/client/client.component';
 import { AdminComponent } from './layouts/admin/admin.component';
+
+
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -32,6 +34,8 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { BlogComponent } from './pages/blog/blog.component';
+import { WorkComponent } from './pages/work/work.component';
 
 registerLocaleData(en);
 @NgModule({
@@ -48,6 +52,8 @@ registerLocaleData(en);
     AdminComponent,
     SignupComponent,
     SigninComponent,
+    BlogComponent,
+    WorkComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,7 @@ registerLocaleData(en);
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
