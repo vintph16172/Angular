@@ -2,38 +2,15 @@
     <div class=" md:w-[875px] mt-[100px]  mx-auto px-4">
         <h2 class="text-5xl font-bold" >Blog</h2>
         <div class="pt-[40px] grid grid-rows-4 gap-4 ">
-            <div class=" border-b-2 border-[#E0E0E0] pb-2">
-                <h2 class="tracking-wider ">UI Interactions of the week</h2>
+            <div *ngFor="let post of posts; let i = index " class=" border-b-2 border-[#E0E0E0] pb-2">
+                <h2 class="tracking-wider ">{{ post.title }}</h2>
                 <div class="mt-2 text-base md:text-xl tracking-widest">
-                    <span>12 Feb 2019 <span class="mx-4 border-l-2 px-4 ">Express, Handlebars</span> </span>
+                    <span>{{ post.createAt }} <span class="mx-4 border-l-2 px-4 ">Express, Handlebars</span> </span>
 
                 </div>
-                <p class="text-sm md:text-xl mt-3">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+                <p class="text-sm md:text-xl mt-3">{{ post.short_desc }}</p>
             </div>
-            <div class=" border-b-2 border-[#E0E0E0] pb-2">
-                <h2 class="tracking-wider ">UI Interactions of the week</h2>
-                <div class="mt-2 text-base md:text-xl tracking-widest">
-                    <span>12 Feb 2019 <span class="mx-4 border-l-2 px-4 ">Express, Handlebars</span> </span>
-
-                </div>
-                <p class="text-sm md:text-xl mt-3">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            </div>
-            <div class=" border-b-2 border-[#E0E0E0] pb-2">
-                <h2 class="tracking-wider ">UI Interactions of the week</h2>
-                <div class="mt-2 text-base md:text-xl tracking-widest">
-                    <span>12 Feb 2019 <span class="mx-4 border-l-2 px-4 ">Express, Handlebars</span> </span>
-
-                </div>
-                <p class="text-sm md:text-xl mt-3">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            </div>
-            <div class=" border-b-2 border-[#E0E0E0] pb-2">
-                <h2 class="tracking-wider ">UI Interactions of the week</h2>
-                <div class="mt-2 text-base md:text-xl tracking-widest">
-                    <span>12 Feb 2019 <span class="mx-4 border-l-2 px-4 ">Express, Handlebars</span> </span>
-
-                </div>
-                <p class="text-sm md:text-xl mt-3">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            </div>
+            
         </div>
         
     </div>

@@ -1,0 +1,52 @@
+<div class="send-request">
+    <!-- <button nz-button nzType="primary" [disabled]="setOfCheckedId.size === 0" [nzLoading]="loading"
+        (click)="sendRequest()">
+        Send Request
+    </button> -->
+    <span>Selected {{ setOfCheckedId.size }} items</span>
+</div>
+
+<nz-table class="" #rowSelectionTable nzShowPagination nzShowSizeChanger [nzData]="listOfData"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+    <thead>
+        <tr>
+            <th [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
+            <th>STT</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Short_desc</th>
+            <th>Description</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <ng-container *ngFor="let data of rowSelectionTable.data; let i = index ">
+            <tr  >
+                <td [nzChecked]="setOfCheckedId.has(data.id)" [nzDisabled]="data.disabled"
+                    (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+                <td>{{ i+1 }}</td>
+                <td>{{ data.id }}</td>
+                <td>{{ data.title }}</td>
+                <td>{{ data.image }}</td>
+                <td>{{ data.categoriesPost.name }}</td>
+                <td>{{ data.short_desc }}</td>
+                <td [nzExpand]="expandSet.has(data.id)" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+                <td>
+                    <a routerLink="/admin/products/edit/{{data.id}}">
+                        <button type="button" class="btn btn-success">Sửa</button>
+                    </a>
+    
+                </td>
+                <td><button (click)="onDelete(data.id)" type="button" class="btn btn-danger">Xóa</button></td>
+                
+            </tr>
+            <tr [nzExpand]="expandSet.has(data.id)">
+                <span>{{ data.desc }}</span>
+            </tr>
+        </ng-container>
+       
+    </tbody>
+</nz-table>

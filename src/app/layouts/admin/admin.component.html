@@ -82,7 +82,7 @@
     </li>
   </ul> -->
 
-<nz-layout class="app-layout">
+<nz-layout class=" h-full">
   <nz-sider class="menu-sidebar"
             nzCollapsible
             nzWidth="256px"
@@ -91,8 +91,8 @@
             [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
-        <img src="../../img/logo.png" alt="logo">
-        <h1>FastFood</h1>
+        <img src="../../img/logo.png">
+        <h1>NTV</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
@@ -130,7 +130,7 @@
       </div>
     </nz-header>
     <nz-content>
-      <div class="inner-content">
+      <div class=" bg-[#fff] p-[24px] mb-10">
         <router-outlet></router-outlet>
       </div>
     </nz-content>

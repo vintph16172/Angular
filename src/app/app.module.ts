@@ -36,6 +36,8 @@ import { SigninComponent } from './components/signin/signin.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { BlogComponent } from './pages/blog/blog.component';
 import { WorkComponent } from './pages/work/work.component';
+import { PostListComponent } from './components/admin/post/post-list/post-list.component';
+import { PostFormComponent } from './components/admin/post/post-form/post-form.component';
 
 registerLocaleData(en);
 @NgModule({
@@ -54,6 +56,8 @@ registerLocaleData(en);
     SigninComponent,
     BlogComponent,
     WorkComponent,
+    PostListComponent,
+    PostFormComponent,
   ],
   imports: [
     BrowserModule,

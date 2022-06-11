@@ -35,8 +35,9 @@
 
 <!-- <app-product-add (onAdd)="onHandlerAdd($event)" ></app-product-add>> -->
 
-<!-- 
-<div *ngIf="show" class="">
+
+
+<!-- <div *ngIf="show" class="">
     <table class="table">
         <thead>
             <tr>
@@ -82,7 +83,8 @@
     </button> -->
     <span>Selected {{ setOfCheckedId.size }} items</span>
 </div>
-<nz-table #rowSelectionTable nzShowPagination nzShowSizeChanger [nzData]="listOfData"
+
+<nz-table class="" #rowSelectionTable nzShowPagination nzShowSizeChanger [nzData]="listOfData"
     (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
     <thead>
         <tr>
@@ -118,4 +120,3 @@
     </tbody>
 </nz-table>
 
-<span>abc</span>
