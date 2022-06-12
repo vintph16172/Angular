@@ -34,10 +34,17 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+
 import { BlogComponent } from './pages/blog/blog.component';
 import { WorkComponent } from './pages/work/work.component';
 import { PostListComponent } from './components/admin/post/post-list/post-list.component';
 import { PostFormComponent } from './components/admin/post/post-form/post-form.component';
+
+// import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from 'ckeditor4-angular';
+import axios from 'axios'
 
 registerLocaleData(en);
 @NgModule({
@@ -66,6 +73,7 @@ registerLocaleData(en);
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    CKEditorModule,
     
     BrowserAnimationsModule,
     IconsProviderModule,
@@ -76,7 +84,9 @@ registerLocaleData(en);
     NzButtonModule,
     NzTableModule,
     NzGridModule,
-    NzIconModule
+    NzIconModule,
+    NzDropDownModule,
+    NzAlertModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
