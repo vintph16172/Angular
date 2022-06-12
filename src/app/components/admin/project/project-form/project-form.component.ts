@@ -1,26 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PostType } from 'src/app/models/PostType';
-import { PostService } from 'src/app/services/post.service';
+
 import axios from 'axios';
 import * as moment from 'moment';
-import { CategoryPostService } from 'src/app/services/category-post.service';
+import { ProjectType } from 'src/app/models/ProjectType';
+import { ProjectService } from 'src/app/services/project.service';
+import { CategoryProjectService } from 'src/app/services/category-project.service';
+
 
 @Component({
-  selector: 'app-post-form',
-  templateUrl: './post-form.component.html',
-  styleUrls: ['./post-form.component.css']
+  selector: 'app-project-form',
+  templateUrl: './project-form.component.html',
+  styleUrls: ['./project-form.component.css']
 })
-export class PostFormComponent implements OnInit {
-  breadcrumb: string = "Form Bài Viết"
+export class ProjectFormComponent implements OnInit {
+
+  breadcrumb: string = "Form Dự Án"
   id: number | undefined
   isImgLoad: boolean = false
-  product: PostType = {
-    title: "",
+  product: ProjectType = {
+    name: "",
     image: "",
     createAt: "",
-    categoriesPostId: 0,
+    categoriesProjectId: 0,
     short_desc: "",
     desc: ""
   }
@@ -30,8 +34,8 @@ export class PostFormComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private postService: PostService,
-    private categoryPostService: CategoryPostService,
+    private projectService: ProjectService,
+    private categoryProjectService: CategoryProjectService,
     private fb: FormBuilder,
     
   ) { }
@@ -39,15 +43,15 @@ export class PostFormComponent implements OnInit {
   ngOnInit(): void {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get("id"))
     if (this.id) {
-      this.postService.getDetailPost(this.id).subscribe((data) => {
-        const { categoriesPost, ...abc } = data;
+      this.projectService.getDetailProject(this.id).subscribe((data) => {
+        const { categoriesProject, ...abc } = data;
         this.product = abc
         this.isImgLoad = true
         console.log( this.product);
         
       })
     }
-    this.categoryPostService.getCatePost().subscribe((data2)=>{
+    this.categoryProjectService.getCateProject().subscribe((data2)=>{
       this.categoryPost = data2
       console.log(this.categoryPost);
       
@@ -60,14 +64,14 @@ export class PostFormComponent implements OnInit {
   onSubmit() {
     console.log(this.product);
     if (this.id) {
-      return this.postService.updatePost(this.product).subscribe((data) => {
-        this.router.navigate([`/admin/posts`])
+      return this.projectService.updateProject(this.product).subscribe((data) => {
+        this.router.navigate([`/admin/projects`])
       })
     }
     this.product.createAt = moment().toISOString();
     console.log(this.product);
-    return this.postService.addPost(this.product).subscribe((data) => {
-      this.router.navigate([`/admin/posts`])
+    return this.projectService.addProject(this.product).subscribe((data) => {
+      this.router.navigate([`/admin/projects`])
     })
 
   }
@@ -103,6 +107,5 @@ export class PostFormComponent implements OnInit {
       }
     };
   }
-  
 
 }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostFormComponent } from './components/admin/post/post-form/post-form.component';
 import { PostListComponent } from './components/admin/post/post-list/post-list.component';
+import { ProjectFormComponent } from './components/admin/project/project-form/project-form.component';
+import { ProjectListComponent } from './components/admin/project/project-list/project-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
@@ -66,6 +68,14 @@ const routes: Routes = [
           { path: 'list', component: PostListComponent },
           { path: "add", component: PostFormComponent },
           { path: "edit/:id", component: PostFormComponent },
+        ]
+      },
+      {
+        path: "projects", children: [
+          { path: "", redirectTo: 'list', pathMatch: 'full' },
+          { path: 'list', component: ProjectListComponent },
+          { path: "add", component: ProjectFormComponent },
+          { path: "edit/:id", component: ProjectFormComponent },
         ]
       },
 

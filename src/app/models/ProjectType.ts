@@ -1,11 +1,11 @@
 import { Moment } from 'moment';
-export interface PostType {
+export interface ProjectType {
     id?: number | null,
-    title: string,
+    name: string,
     image: string ,
     createAt: string | Moment,
-    categoriesPostId: number,
+    categoriesProjectId: number,
     short_desc: string,
     desc: string,
-    categoriesPost?: {id: number, name: string}
+    categoriesProject?: {id: number, name: string}
 }

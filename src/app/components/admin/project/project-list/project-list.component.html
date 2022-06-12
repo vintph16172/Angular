@@ -3,7 +3,7 @@
       <i nz-icon nzType="home"></i>
     </nz-breadcrumb-item>
     
-    <nz-breadcrumb-item>Blog</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Project</nz-breadcrumb-item>
   </nz-breadcrumb>
 
 <h1 class="mt-4">{{ breadcrumb }}</h1>
@@ -11,8 +11,8 @@
 
 
 <button class="mb-4" nz-button nzType="primary">
-    <a routerLink="/admin/posts/add">
-        Thêm Bài Viết
+    <a routerLink="/admin/projects/add">
+        Thêm Dự Án
     </a>
 </button>
 
@@ -66,15 +66,15 @@
                     (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
                 <td>{{ i+1 }}</td>
                 <td>{{ data.id }}</td>
-                <td>{{ data.title }}</td>
+                <td>{{ data.name }}</td>
                 <td>
                     <nz-avatar  [nzSize]="100" [nzShape]="'square'"  nzIcon="user" nzSrc="{{data.image}}"></nz-avatar>
                 </td>
-                <td>{{ data.categoriesPost.name }}</td>
+                <td>{{ data.categoriesProject.name }}</td>
 
                 <td [nzExpand]="expandSet.has(data.id)" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
                 <td>
-                    <a routerLink="/admin/posts/edit/{{data.id}}">
+                    <a routerLink="/admin/projects/edit/{{data.id}}">
                         <button type="button" class="btn btn-success">Sửa</button>
                     </a>
 

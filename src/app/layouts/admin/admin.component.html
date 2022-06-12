@@ -90,29 +90,31 @@
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null">
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="../../img/logo.png">
-        <h1>NTV</h1>
+      <a routerLink="/" target="_blank">
+        <div *ngIf="isCollapsed; else elseBlock"><h2 class="text-base logo-text text-white mt-3">NTVz</h2></div>
+        <ng-template #elseBlock><h2 class="logo-text text-white mt-3">NTVz</h2></ng-template>
+
+        
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Post" nzIcon="dashboard">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
+          <li nz-menu-item nzMatchRouterExactExact>
+            <a routerLink="/admin/posts" >Post List</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
+          <li nz-menu-item nzMatchRouterExactExact>
+            <a routerLink="/admin/posts/add" >Post Add</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <li nz-submenu nzOpen nzTitle="Project" nzIcon="form">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/admin/projects" >Project List</a>
+          </li>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/admin/projects" >Project List</a>
           </li>
         </ul>
       </li>

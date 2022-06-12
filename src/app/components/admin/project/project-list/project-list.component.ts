@@ -1,28 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
+
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
-import { PostType } from 'src/app/models/PostType';
-import { CategoryPostType } from 'src/app/models/CategoryPostType';
-import { CategoryPostService } from 'src/app/services/category-post.service';
+import { ProjectType } from 'src/app/models/ProjectType';
+import { CategoryProjectService } from 'src/app/services/category-project.service';
+import { ProjectService } from 'src/app/services/project.service';
+
 import { NzMessageService } from 'ng-zorro-antd/message';
 
-interface ColumnItem {
-  name: string;
-  sortOrder: NzTableSortOrder | null;
-  sortFn: NzTableSortFn<PostType> |  null;
-  listOfFilter: NzTableFilterList;
-  filterFn: NzTableFilterFn<PostType> | null;
-  filterMultiple: boolean;
-  sortDirections: NzTableSortOrder[];
-}
 
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  selector: 'app-project-list',
+  templateUrl: './project-list.component.html',
+  styleUrls: ['./project-list.component.css']
 })
-export class PostListComponent implements OnInit {
-  breadcrumb: string = "Bài Viết"
+export class ProjectListComponent implements OnInit {
+
+  breadcrumb: string = "Dự Án"
   posts: any
   catePost: any = {id: "",name: ""}
   cateFilter: any[] = []
@@ -43,22 +36,22 @@ export class PostListComponent implements OnInit {
     {
       name: 'STT',
       sortOrder: null,
-      sortFn: (a: PostType, b: PostType) => a.title.localeCompare(b.title),
+      sortFn: (a: ProjectType, b: ProjectType) => a.id! - b.id!,
       sortDirections: ['ascend', 'descend', null],
       
     },
     {
       name: 'ID',
       sortOrder: null,
-      sortFn: (a: PostType, b: PostType) => a.id! - b.id! ,
+      sortFn: (a: ProjectType, b: ProjectType) => a.id! - b.id! ,
       sortDirections: ['ascend', 'descend', null],
       search: true
       
     },
     {
-      name: 'Title',
+      name: 'Name',
       sortOrder: null,
-      sortFn: (a: PostType, b: PostType) => a.title.localeCompare(b.title),
+      sortFn: (a: ProjectType, b: ProjectType) => a.name.localeCompare(b.name),
       sortDirections: ['ascend', 'descend', null],
      
     },
@@ -69,16 +62,16 @@ export class PostListComponent implements OnInit {
     {
       name: 'Category',
       sortOrder: null,
-      sortFn: (a: PostType, b: PostType) => a.categoriesPostId - b.categoriesPostId,
+      sortFn: (a: ProjectType, b: ProjectType) => a.categoriesProjectId - b.categoriesProjectId,
       sortDirections: ['ascend', 'descend', null],
       filterMultiple: false,
       listOfFilter: [
         {text: "Công Nghệ", value: "Công Nghệ"},
         {text: "Tin Tức", value: "Tin Tức"},
       ],
-      filterFn: (cateName: string, item: PostType) => item.categoriesPost?.name.indexOf(cateName) !== -1
-      // filterFn: (cate: string, item: PostType) => item.categoriesPost?.indexOf(cate) !== -1
-      // filterFn: (list: string[], item: PostType) => list.some(name => item.categoriesPost?.indexOf(name) !== -1)
+      filterFn: (cateName: string, item: ProjectType) => item.categoriesProject?.name.indexOf(cateName) !== -1
+      // filterFn: (cate: string, item: ProjectType) => item.categoriesPost?.indexOf(cate) !== -1
+      // filterFn: (list: string[], item: ProjectType) => list.some(name => item.categoriesPost?.indexOf(name) !== -1)
     },
     {
       name: 'Short_desc'
@@ -90,17 +83,17 @@ export class PostListComponent implements OnInit {
   
 
   constructor(
-    private postService: PostService,
-    private categoryPostService: CategoryPostService,
+    private projectService: ProjectService,
+    private categoryProjectService: CategoryProjectService,
     private message: NzMessageService
   ) { }
 
   ngOnInit(): void {
-    this.getPostList()
-    this.getCatePostList()
+    this.getProjectList()
+    this.getCateProjectList()
   }
-  getPostList(){
-    this.postService.getPost().subscribe(data=>{
+  getProjectList(){
+    this.projectService.getProject().subscribe(data=>{
       this.posts = data
       this.listOfData = data
       this.listOfDisplayData = [...this.listOfData];
@@ -110,8 +103,8 @@ export class PostListComponent implements OnInit {
     })
   }
 
-  getCatePostList(){
-    this.categoryPostService.getCatePost().subscribe((data)=>{
+  getCateProjectList(){
+    this.categoryProjectService.getCateProject().subscribe((data)=>{
       this.catePost = data
       this.cateFilter = this.catePost.map((data:any)=>{
         return {text: data.name,value: data.name}
@@ -133,8 +126,8 @@ export class PostListComponent implements OnInit {
 
   onDelete(id: number | undefined) {
     if (confirm("Bạn có muốn Xóa?")) {
-      this.postService.deletePost(id).subscribe(() => {
-        this.getPostList()
+      this.projectService.deleteProject(id).subscribe(() => {
+        this.getProjectList()
         this.message.success("Xóa Thành Công!")
       })
     }
@@ -188,10 +181,7 @@ export class PostListComponent implements OnInit {
 
   search(): void {
     this.visible = false;
-    this.listOfDisplayData = this.listOfData.filter((item: PostType) => item.title.indexOf(this.searchValue) !== -1);
+    this.listOfDisplayData = this.listOfData.filter((item: ProjectType) => item.name.indexOf(this.searchValue) !== -1);
   }
-
-
-
 
 }
