@@ -108,16 +108,49 @@
           </li>
         </ul>
       </li>
+
       <li nz-submenu nzOpen nzTitle="Project" nzIcon="form">
         <ul>
           <li nz-menu-item nzMatchRouterExact>
             <a routerLink="/admin/projects" >Project List</a>
           </li>
           <li nz-menu-item nzMatchRouterExact>
-            <a routerLink="/admin/projects" >Project List</a>
+            <a routerLink="/admin/projects/add" >Project Add</a>
           </li>
         </ul>
       </li>
+
+      <li nz-submenu nzOpen nzTitle="Category Post" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/admin/categoryPosts" >Category Post List</a>
+          </li>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/admin/categoryPosts/add" >Category Post Add</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Category Projects" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/admin/categoryProjects" >Category Project List</a>
+          </li>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/admin/categoryProjects/add" >Category Project Add</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="User Profile" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/admin/userProfile/edit/1" >Category Project Edit</a>
+          </li>
+        </ul>
+      </li>
+      
+      
     </ul>
   </nz-sider>
   <nz-layout>

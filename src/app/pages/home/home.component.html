@@ -1,21 +1,24 @@
 <section class="mt-8 md:mt-[135px]">
     <div class="container">
-        <div class="flex flex-wrap items-center justify-between w-full mx-0 bg-white md:mx-12 ">
-            <div class="order-2 sm:text-left md:basis-3/5 md:order-1 ">
+        <div *ngIf="userProfile" class="flex flex-wrap items-center justify-between w-full mx-0 bg-white md:mx-12">
+            <div class="order-2 sm:text-left md:basis-3/5 md:order-1">
                 <h2 class="mt-12 text-5xl ">
-                    Hi, I am <span class="text-red-600">Vĩ</span>,
-                    <span class="block md:mt-4">FrontEnd Developer</span>
+                    Hi, I am <span class=" text-primary2 ">{{ userProfile.name }}</span>,
+                    <span class="block md:mt-4">{{ userProfile.position }}</span>
                 </h2>
                 <p class="mt-10 text-xl">
-                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-                    duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                    {{ userProfile.about }}
                 </p>
-                <button class="px-4 py-2 text-2xl text-white bg-primary2 ">
-                    Download Resume
+                <button  (click)="downloadCV(userProfile.cv)" class="px-4 py-2 text-2xl text-white bg-primary2 ">
+                    
+
+                        Download Resume
+                   
                 </button>
             </div>
             <div class="flex justify-center w-full md:basis-2/5 md:order-2 md:justify-end">
-                <img src="https://picsum.photos/200/300" alt="" class="h-[200px] w-[200px]   md:h-[285px] md:w-[285px] rounded-full">
+                <img src="https://picsum.photos/200/300" alt=""
+                    class="h-[200px] w-[200px]   md:h-[285px] md:w-[285px] rounded-full">
             </div>
         </div>
 
@@ -29,33 +32,27 @@
             Resent posts
         </div>
         <div class="hidden text-secondry2 md:block ">
-            View all
+            <a routerLink="/blog">
+                View all
+            </a>
         </div>
     </div>
     <div class="">
-        <div class="grid items-center w-full grid-rows-2 gap-4 mx-0 md:mx-8 md:grid-cols-2 ">
-            <div class="p-4 mx-2 bg-white md:mx-0">
-                <h2 class="text-3xl font-bold">Making a design system from scratch</h2>
-                <div class="mt-4 text-xl">
-                    <span>12 Feb 2020</span> | <span>Design, Pattern</span>
+        <div *ngIf="post" class="grid items-center w-full grid-rows-2 gap-4 mx-0 md:mx-8 md:grid-cols-2 ">
+            <div *ngFor="let data of post; let i = index " class="p-4 mx-2 bg-white md:mx-0">
+                <a class="text-black" routerLink="/blog">
+                    <h2 class="text-3xl font-bold">{{data.title }}</h2>
+                    <div class="mt-4 text-xl">
+                        <span>{{data.createAt }}</span> | <a routerLink="/blog"
+                            class="text-black">{{data.categoriesPost.name }}</a>
 
-                </div>
-                <p class="mt-8 text-lg">
-                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-                    duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
+                    </div>
+                    <p class="mt-8 text-lg">
+                        {{data.short_desc }}
+                    </p>
+                </a>
             </div>
-            <div class="p-4 mx-2 bg-white md:mx-0">
-                <h2 class="text-3xl font-bold">Making a design system from scratch</h2>
-                <div class="mt-4 text-xl">
-                    <span>12 Feb 2020</span> | <span>Design, Pattern</span>
 
-                </div>
-                <p class="mt-8 text-lg">
-                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-                    duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </p>
-            </div>
         </div>
 
     </div>
@@ -63,70 +60,38 @@
 
 <section class="mt-8 ">
     <div class="container">
-        <div class="w-full bg-white ">
+        <div *ngIf="post" class="w-full bg-white ">
             <!-- <div class=""> -->
-                <h2 class="text-2xl md:text-left text-center">Featured works</h2>
+            <h2 class="text-2xl md:text-left text-center">Featured works</h2>
             <!-- </div> -->
-            <div class="flex flex-wrap justify-center mt-4 border-b-2 border-[#E0E0E0] pb-3 ">
+            <div *ngFor="let data of project; let i = index "
+                class="flex flex-wrap justify-center mt-4 border-b-2 border-[#E0E0E0] pb-3 ">
                 <div class="md:basis-1/3 ">
-                    <a href="">
-                        <img src="https://picsum.photos/200/300" alt="" class="h-[300px] w-screen md:h-[200px] md:w-[320px] rounded-md">
+                    <a routerLink="/work/{{ data.id }}">
+                        <img src="{{ data.image }}" alt=""
+                            class="h-[300px] w-screen md:h-[200px] md:w-[320px] rounded-md">
                     </a>
                 </div>
                 <div class="md:basis-2/3 ">
-                    <h2 class="mt-4 text-3xl font-bold md:mt-0">Designing Dashboards</h2>
-                    <div class="">
-                        <button class="bg-[#142850]  px-3 rounded-3xl text-xl text-white">
-                            2020
-                        </button>
-                        <span class="text-[#8695A4] text-xl ml-4">
-                            Dashboard
-                        </span>
-                    </div>
-                    <p class="mt-4 text-lg">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                </div>
-            </div>
-            <div class="flex flex-wrap justify-center mt-4 border-b-2 border-[#E0E0E0] pb-3 ">
-                <div class="md:basis-1/3 ">
-                    <a href="">
-                        <img src="https://picsum.photos/200/300" alt="" class="h-[300px] w-screen md:h-[200px] md:w-[320px] rounded-md">
+                    <a class="text-black" routerLink="/work/{{ data.id }}">
+                        <h2 class="mt-4 text-3xl text-[#21243D] font-bold md:mt-0">{{ data.name }}</h2>
+                        <div class="">
+                            <button class="bg-[#142850]  px-3 rounded-3xl text-xl text-white">
+                                2022
+                            </button>
+                            <span class="text-[#8695A4] text-xl ml-4">
+                                {{ data.categoriesProject.name }}
+                            </span>
+                        </div>
+                        <p class="mt-4 text-lg">
+                            {{ data.short_desc }}
+                        </p>
                     </a>
                 </div>
-                <div class="md:basis-2/3 ">
-                    <h2 class="mt-4 text-3xl font-bold md:mt-0">Designing Dashboards</h2>
-                    <div class="">
-                        <button class="bg-[#142850]  px-3 rounded-3xl text-xl text-white">
-                            2020
-                        </button>
-                        <span class="text-[#8695A4] text-xl ml-4">
-                            Dashboard
-                        </span>
-                    </div>
-                    <p class="mt-4 text-lg">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                </div>
             </div>
-            <div class="flex flex-wrap justify-center mt-4 border-b-2 border-[#E0E0E0] pb-3 ">
-                <div class="md:basis-1/3 ">
-                    <a href="">
-                        <img src="https://picsum.photos/200/300" alt="" class="h-[300px] w-screen md:h-[200px] md:w-[320px] rounded-md">
-                    </a>
-                </div>
-                <div class="md:basis-2/3 ">
-                    <h2 class="mt-4 text-3xl font-bold md:mt-0">Designing Dashboards</h2>
-                    <div class="">
-                        <button class="bg-[#142850]  px-3 rounded-3xl text-xl text-white">
-                            2020
-                        </button>
-                        <span class="text-[#8695A4] text-xl ml-4">
-                            Dashboard
-                        </span>
-                    </div>
-                    <p class="mt-4 text-lg">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                </div>
-            </div>
+
         </div>
 
     </div>
 
 </section>
-

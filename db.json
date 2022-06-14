@@ -60,10 +60,11 @@
     }
   ],
   "user": {
+    "id": 1,
     "name": "Nguyễn Trường Vĩ",
     "position": "FrontEnd-Developer",
-    "about": "abc",
-    "cv": "abc"
+    "about": "abc 123 45",
+    "cv": "http://res.cloudinary.com/vintph16172/image/upload/v1655166615/tpb9wmndspaw9hbyqdco.pdf"
   },
   "posts": [
     {
@@ -73,15 +74,6 @@
       "createAt": "2022-06-12T12:57:38.809Z",
       "categoriesPostId": 1,
       "short_desc": "abc 123",
-      "desc": "<p>jfnejkwebfjewbf</p>\n"
-    },
-    {
-      "id": 2,
-      "title": "Post 2",
-      "image": "abc.img",
-      "createAt": "2022-06-10T14:42:15.017Z",
-      "categoriesPostId": 2,
-      "short_desc": "abc 12345 6",
       "desc": "<p>jfnejkwebfjewbf</p>\n"
     },
     {
@@ -183,13 +175,17 @@
     {
       "id": 2,
       "name": "Tin Tức"
+    },
+    {
+      "name": "abc123434",
+      "id": 3
     }
   ],
   "projects": [
     {
       "id": 1,
       "name": "Website Bán đồ ăn nhanh Fastfood",
-      "image": "abc.img",
+      "image": "http://res.cloudinary.com/vintph16172/image/upload/v1655047124/h1n7gfjmnuqg8txogqjj.jpg",
       "createAt": "12/02/2022",
       "categoriesProjectId": 1,
       "short_desc": "abc 123",
@@ -197,15 +193,15 @@
     },
     {
       "id": 2,
-      "name": "Website Bán đồ ăn nhanh Fastfood",
-      "image": "abc.img",
+      "name": "Website Portfolio",
+      "image": "http://res.cloudinary.com/vintph16172/image/upload/v1655047124/h1n7gfjmnuqg8txogqjj.jpg",
       "createAt": "12/02/2022",
       "categoriesProjectId": 2,
       "short_desc": "abc 123",
       "desc": "jfnejkwebfjewbf"
     },
     {
-      "name": "Burger Xông Khói",
+      "name": "Website  Tin Tức",
       "image": "http://res.cloudinary.com/vintph16172/image/upload/v1655047124/h1n7gfjmnuqg8txogqjj.jpg",
       "createAt": "2022-06-12T15:18:51.356Z",
       "categoriesProjectId": "1",

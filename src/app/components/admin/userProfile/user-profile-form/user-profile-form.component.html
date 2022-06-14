@@ -1,0 +1,47 @@
+
+<nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <i nz-icon nzType="home"></i>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Form</nz-breadcrumb-item>
+  </nz-breadcrumb>
+
+<h1 class="mt-4">{{ breadcrumb }}</h1>
+
+
+
+
+
+<form (ngSubmit)="onSubmit()" class="form" #productForm="ngForm">
+    <input class="form-control my-2" type="text" value="" [(ngModel)]="product.name" #name="ngModel" placeholder="Name"
+        name="name" required minlength="6">
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <nz-alert *ngIf="name.errors?.['required']" nzType="error" nzMessage="Tên không được để trống"></nz-alert>
+        <nz-alert *ngIf="name.errors?.['minlength']" nzType="error" nzMessage="Tên tối thiểu 6 ký tự"></nz-alert>
+    </div>
+
+    <input class="form-control my-2" type="text" value="" [(ngModel)]="product.position" #position="ngModel" placeholder="Position"
+        name="position" required >
+    <div *ngIf="position.invalid && (position.dirty || position.touched)" class="alert">
+        <nz-alert *ngIf="position.errors?.['required']" nzType="error" nzMessage="Vị Trí không được để trống"></nz-alert>
+
+    </div>
+
+    <input class="form-control my-2" type="text" value="" [(ngModel)]="product.about" #about="ngModel" placeholder="About"
+        name="about" required >
+    <div *ngIf="about.invalid && (about.dirty || name.touched)" class="alert">
+        <nz-alert *ngIf="about.errors?.['required']" nzType="error" nzMessage="Mô tả không được để trống"></nz-alert>
+        
+    </div>
+
+    <input class="form-control my-2" type="file" value="{{product.cv}}" [(ngModel)]="product.cv" #cv="ngModel" placeholder="CV"
+    name="cv"  [attr.required]="isImgLoad || null" (change)="changeListener($event)"  >
+    <div *ngIf="cv.invalid && (cv.dirty || cv.touched)" class="alert">
+        <nz-alert *ngIf="cv.errors?.['required']" nzType="error" nzMessage="CV không được để trống"></nz-alert>
+     
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4" [disabled]="!productForm.valid">Submit</button>
+</form>
+
+

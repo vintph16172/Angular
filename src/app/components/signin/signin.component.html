@@ -1,5 +1,7 @@
-<div class="container">
-
+<div class=" md:w-[500px] mt-[100px]  mx-auto px-4 md:px-0">
+    <a routerLink="/">
+      <h2 class="logo-text mt-3 text-[#FF6464] text-5xl text-center ">NTVz</h2>
+    </a>
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
         <nz-form-item>
             <nz-form-control nzErrorTip="Please input your username!">
@@ -27,6 +29,6 @@
         </div> -->
         <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Sign in</button>
         Or
-        <a>register now!</a>
+        <a routerLink="/signup" >Sign Up now!</a>
     </form>
 </div>

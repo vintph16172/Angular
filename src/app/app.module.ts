@@ -52,7 +52,13 @@ import { PostFormComponent } from './components/admin/post/post-form/post-form.c
 import { CKEditorModule } from 'ckeditor4-angular';
 import axios from 'axios';
 import { ProjectFormComponent } from './components/admin/project/project-form/project-form.component';
-import { ProjectListComponent } from './components/admin/project/project-list/project-list.component'
+import { ProjectListComponent } from './components/admin/project/project-list/project-list.component';
+import { CategoryPostListComponent } from './components/admin/categoryProject/category-post-list/category-post-list.component';
+import { CategoryPostFormComponent } from './components/admin/categoryProject/category-post-form/category-post-form.component';
+import { CategoryProjectsFormComponent } from './components/admin/categoryPost/category-projects-form/category-projects-form.component';
+import { CategoryProjectsListComponent } from './components/admin/categoryPost/category-projects-list/category-projects-list.component';
+import { UserProfileFormComponent } from './components/admin/userProfile/user-profile-form/user-profile-form.component';
+import { DetailProjectComponent } from './pages/detail-project/detail-project.component'
 
 registerLocaleData(en);
 @NgModule({
@@ -75,6 +81,12 @@ registerLocaleData(en);
     PostFormComponent,
     ProjectFormComponent,
     ProjectListComponent,
+    CategoryPostListComponent,
+    CategoryPostFormComponent,
+    CategoryProjectsFormComponent,
+    CategoryProjectsListComponent,
+    UserProfileFormComponent,
+    DetailProjectComponent,
   ],
   imports: [
     BrowserModule,

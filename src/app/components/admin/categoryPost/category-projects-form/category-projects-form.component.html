@@ -1,0 +1,32 @@
+
+<nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <i nz-icon nzType="home"></i>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a routerLink="/admin/categoryProjects" >
+        <i nz-icon nzType="user"></i>
+        <span>Danh Mục Dự Án</span>
+      </a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Form</nz-breadcrumb-item>
+  </nz-breadcrumb>
+
+<h1 class="mt-4">{{ breadcrumb }}</h1>
+
+
+
+
+
+<form (ngSubmit)="onSubmit()" class="form" #productForm="ngForm">
+    <input class="form-control my-2" type="text" value="" [(ngModel)]="product.name" #name="ngModel" placeholder="Name"
+        name="name" required minlength="6">
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <nz-alert *ngIf="name.errors?.['required']" nzType="error" nzMessage="Tên không được để trống"></nz-alert>
+        <nz-alert *ngIf="name.errors?.['minlength']" nzType="error" nzMessage="Tên tối thiểu 6 ký tự"></nz-alert>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4" [disabled]="!productForm.valid">Submit</button>
+</form>
+
+

@@ -1,0 +1,83 @@
+<nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <i nz-icon nzType="home"></i>
+    </nz-breadcrumb-item>
+    
+    <nz-breadcrumb-item>Category Project</nz-breadcrumb-item>
+  </nz-breadcrumb>
+
+<h1 class="mt-4">{{ breadcrumb }}</h1>
+
+
+
+<button class="mb-4" nz-button nzType="primary">
+    <a routerLink="/admin/categoryProjects/add">
+        Thêm Danh Mục Dự Án
+    </a>
+</button>
+
+<div class="send-request mb-4">
+    <!-- <button nz-button nzType="primary" [disabled]="setOfCheckedId.size === 0" [nzLoading]="loading"
+        (click)="sendRequest()">
+        Send Request
+    </button> -->
+    <span>Selected {{ setOfCheckedId.size }} items</span>
+</div>
+
+<nz-table class="" #rowSelectionTable nzShowPagination nzShowSizeChanger [nzData]="listOfDisplayData"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+    <thead>
+        <tr>
+            <th [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
+            <th *ngFor="let column of listOfColumns" [nzSortOrder]="column.sortOrder" [nzSortFn]="column.sortFn"
+                [nzSortDirections]="column.sortDirections" [nzFilterMultiple]="column.filterMultiple"
+                [nzFilters]="column.listOfFilter" [nzFilterFn]="column.filterFn">
+                <div class="flex justify-between">
+                    <span>{{ column.name }}</span>
+
+                    <a class="ml-2 text-[#bfbfbf] inline-block" nz-dropdown *ngIf="column.search" nzTrigger="click"
+                        [nzDropdownMenu]="menu">
+                        <i nz-icon nzType="search"></i>
+                    </a>
+                </div>
+
+
+            </th>
+          
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <ng-container *ngFor="let data of rowSelectionTable.data; let i = index ">
+            <tr>
+                <td [nzChecked]="setOfCheckedId.has(data.id)" [nzDisabled]="data.disabled"
+                    (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+                <td>{{ i+1 }}</td>
+                <td>{{ data.id }}</td>
+                <td>{{ data.name }}</td>
+               
+                <td>
+                    <a routerLink="/admin/categoryProjects/edit/{{data.id}}">
+                        <button type="button" class="btn btn-success">Sửa</button>
+                    </a>
+
+                </td>
+                <td><button (click)="onDelete(data.id)" type="button" class="btn btn-danger">Xóa</button></td>
+
+            </tr>
+           
+        </ng-container>
+
+    </tbody>
+</nz-table>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <div class="ant-table-filter-dropdown">
+        <div class="search-box">
+            <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+            <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+            <button nz-button nzSize="small" (click)="reset()">Reset</button>
+        </div>
+    </div>
+</nz-dropdown-menu>
+

@@ -1,0 +1,18 @@
+<section>
+    <div class=" md:w-[875px] mt-[100px]  mx-auto px-4 md:px-0">
+        <h2 class="text-4xl font-semibold">{{ project.name }}</h2>
+        <div class="">
+            <button class="bg-primary2  px-3 rounded-3xl text-xl text-white">
+                2022
+            </button>
+            <span class="text-black text-xl ml-4">
+                {{ project.categoriesProject.name }}
+            </span>
+        </div>
+        <p class="mt-4 text-lg">
+            {{ project.short_desc }}
+        </p>
+        {{ project.desc }}
+
+    </div>
+</section>
